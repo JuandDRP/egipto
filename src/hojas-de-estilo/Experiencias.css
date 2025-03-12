@@ -1,0 +1,67 @@
+.experiencias-container {
+    text-align: center;
+}
+.experiencias-container h1 {
+    padding: 20px 0 20px 0;
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #C69749;
+    text-transform: uppercase;
+}
+.experiencias-container p{
+    font-size: 1.3rem;
+    color: #000000;
+    margin-bottom: 25px;
+}
+
+.experiencias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px 20px;
+
+}
+.experiencia-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.experiencia-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease-in-out;
+}
+.experiencia-item:hover img {
+    transform: scale(1.1);
+}
+.overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.experiencia-item:hover .overlay {
+    opacity: 1;
+}
+.experiencia-item .overlay p{
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .overlay {
+        font-size: 0.9rem;
+    }
+    .experiencias-container h1 {
+        font-size: 2rem;
+
+    }
+}

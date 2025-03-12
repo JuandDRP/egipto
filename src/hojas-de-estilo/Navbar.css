@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
+
+:root {
+  --gold-primary: #daa520;
+  --gold-light: rgba(218, 165, 32, 0.1);
+  --gold-hover: #c69500;
+}
+
+.nav-container {
+  position: relative;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* Custom color utilities */
+.text-gold-600 {
+  color: var(--gold-primary);
+}
+
+.bg-gold-50 {
+  background-color: var(--gold-light);
+}
+
+.hover\:text-gold-600:hover {
+  color: var(--gold-primary);
+}
+
+.hover\:bg-gold-100:hover {
+  background-color: var(--gold-light);
+}
+
+.border-gold-600 {
+  border-color: var(--gold-primary);
+}
+
+/* Typography */
+nav {
+  font-family: 'Marcellus', serif;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.nav-animation {
+  animation: fadeIn 0.3s ease-out;
+}

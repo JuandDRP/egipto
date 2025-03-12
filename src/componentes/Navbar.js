@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../componentes/prueba.png';
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -23,9 +22,9 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex items-center">
             <img 
-              src={logo} 
+              src="/imagenes/logo.png" 
               alt="Egypt Tourism Logo" 
-              className="h-12 w-auto transition-transform duration-300 hover:scale-105"
+              className="h-16 w-auto transition-transform duration-300 hover:scale-105"
             />
           </Link>
 

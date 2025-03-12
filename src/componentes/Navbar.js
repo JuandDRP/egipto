@@ -67,7 +67,7 @@ const Navbar = () => {
               Experiencias
             </MobileNavLink>
             <MobileNavLink to="/SobreNosotros" onClick={() => setMobileMenuOpen(false)}>
-              SobreNosotros
+              Sobre Nosotros
             </MobileNavLink>
           </div>
         </div>

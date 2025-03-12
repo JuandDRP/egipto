@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import "./App.css";
 import Navbar from "./componentes/Navbar";
 import Footer from "./componentes/Footer";
-import iconos from "./componentes/iconos";
 import { Historia } from "./componentes/Historia";
 import SitiosTuristicos from "./componentes/DetallesPelis/SitiosTuristicos";
 import SobreNosotros from "./componentes/SobreNosotros";

@@ -67,7 +67,8 @@ function PaginaPrincipal() {
   if (comentarios.length > 0) {
     console.log("Hay comentarios");
   }
-}, [comentarios.length]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
 
   useEffect(() => {
     if (mostrarComentarios && comentarios.length === 0) {

@@ -1,0 +1,10 @@
+{
+  "extends": [
+    "react-app",
+    "plugin:react-hooks/recommended"
+  ],
+  "plugins": ["react-hooks"],
+  "rules": {
+    // Puedes personalizar reglas aquí si lo deseas
+  }
+}

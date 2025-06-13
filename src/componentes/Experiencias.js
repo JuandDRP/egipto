@@ -62,8 +62,7 @@ function PaginaPrincipal() {
     { src: "/imagenes/50.jpg", alt: "Visitando un templo" }
 
   ], []);
-
-  // eslint-disable-next-line react-hooks/exhaustive-dep
+  
   useEffect(() => {
   if (comentarios.length > 0) {
     console.log("Hay comentarios");

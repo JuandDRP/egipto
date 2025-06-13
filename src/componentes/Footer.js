@@ -3,6 +3,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
+    // <div class="bg-white container">
     <div class="container">
       <footer class="py-3 my-4">
         <p>Síguenos en nuestras redes sociales</p>

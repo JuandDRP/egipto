@@ -1,10 +1,15 @@
 /* eslint-disable no-unused-vars */
-import "../hojas-de-estilo/Experiencias.css";
-import { useMemo } from "react";
+
+import { useMemo, useState, useEffect } from "react";
 
 
 function PaginaPrincipal() {
-  const imagenes =useMemo(() => [
+  const [mostrarFotos, setMostrarFotos] = useState(false);
+  const [mostrarComentarios, setMostrarComentarios] = useState(false);
+  const [comentarios, setComentarios] = useState([]);
+  const [cargandoComentarios, setCargandoComentarios] = useState(false);
+
+  const imagenes = useMemo(() => [
     { src: "/imagenes/1.jpg", alt: "Visitando los globos" },
     { src: "/imagenes/23.jpg", alt: "Visitando las piramides" },
     { src: "/imagenes/24.jpg", alt: "Visitando las piramides" },
@@ -58,38 +63,112 @@ function PaginaPrincipal() {
 
   ], []);
 
+    useEffect(() => {
+  if (comentarios.length > 0) {
+    console.log("Hay comentarios");
+  }
+}, [comentarios]);
+
+  useEffect(() => {
+    if (mostrarComentarios && comentarios.length === 0) {
+      setCargandoComentarios(true);
+      fetch("https://back-egipto.onrender.com/comentarios") 
+        .then((res) => res.json())
+        .then((data) => {
+          setComentarios(data);
+          setCargandoComentarios(false);
+        })
+        .catch((error) => {
+          console.error("Error al obtener los comentarios:", error);
+          setCargandoComentarios(false);
+        });
+    }
+  }, [mostrarComentarios]);
+
+  const renderEstrellas = (cantidad) => {
+    return Array.from({ length: 5 }, (_, i) => (
+      <i
+        key={i}
+        className={`bi ${i < cantidad ? "bi-star-fill text-yellow-500" : "bi-star text-gray-300"}`}
+      ></i>
+    ));
+  };
 
   return (
-    <div >
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></link>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"></link>
-      <div className="experiencias-container">
+    <div className="bg-white">
+      <div className="bg-white min-h-screen px-4 py-10">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></link>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"></link>
+        <div className="max-w-6xl mx-auto text-center">
+          <h1 className="text-4xl font-bold text-yellow-600 uppercase mb-4">
+            Experiencias de Nuestros Clientes
+          </h1>
+          <p className="text-lg text-gray-700 mb-8">
+            Descubre los increíbles momentos que han vivido nuestros viajeros en Egipto.
+          </p>
 
+          <div className="flex flex-col items-center gap-4 mb-8">
+            <button
+              onClick={() => setMostrarFotos(!mostrarFotos)}
+              className="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-2 rounded-lg transition min-w-[180px] text-center"
+            >
+              {mostrarFotos ? "Ocultar fotos" : "Ver fotos"}
+            </button>
 
-        <h1>Experiencias de Nuestros Clientes</h1>
-        <p className="inicio">Descubre los increíbles momentos que han vivido nuestros viajeros en Egipto.</p>
+            <button
+              onClick={() => setMostrarComentarios(!mostrarComentarios)}
+              className="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-2 rounded-lg transition min-w-[180px] text-center"
+            >
+              {mostrarComentarios ? "Ocultar comentarios" : "Ver comentarios"}
+            </button>
+          </div>
 
-        <div className="experiencias-grid">
-          {imagenes.map((imagen, index) => (
-            <div className="experiencia-item" key={index}>
-              <img src={imagen.src} alt={imagen.alt} />
-              <div className="overlay">
-                <p>{imagen.alt}</p>
-              </div>
+          {mostrarFotos && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+              {imagenes.map((imagen, index) => (
+                <div
+                  key={index}
+                  className="relative rounded-lg overflow-hidden shadow-md group"
+                >
+                  <img
+                    src={imagen.src}
+                    alt={imagen.alt}
+                    className="w-full h-80 object-cover transform transition-transform duration-300 group-hover:scale-110"
+                  />
+                  <div className="absolute bottom-0 w-full bg-black bg-opacity-60 text-white text-sm px-2 py-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    {imagen.alt}
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          )}
+
+          {mostrarComentarios && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {cargandoComentarios ? (
+                <p className="text-center col-span-2 text-gray-600">Cargando comentarios...</p>
+              ) : (
+                comentarios.map((comentario, index) => (
+                  <div key={index} className="bg-gray-100 p-6 rounded-lg shadow">
+                    <h3 className="text-xl font-semibold text-yellow-700 mb-2">
+                      {comentario.nombre}
+                    </h3>
+                    <p className="text-gray-700 mb-2">{comentario.texto}</p>
+                    <div className="flex">{renderEstrellas(comentario.estrellas)}</div>
+                  </div>
+                ))
+              )}
+            </div>
+          )}
         </div>
+
+        <a href="https://wa.me/18649088106?text=Hola%2C%20quiero%20información%20sobre%20los%20tours%20a%20Egipto" class="float" target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-whatsapp my-float"></i>
+        </a>
+        <a href="https://www.instagram.com/egipto.infinito" class="float2" target="_blank" rel="noopener noreferrer">
+          <img src="/imagenes/ig2.png" alt="Instagram" />
+        </a>
       </div>
-
-
-
-      <a href="https://api.whatsapp.com/send?phone=573165659077&text=Hola%2C%20quiero%20información%20sobre%20los%20tours%20a%20Egipto" class="float" target="_blank" rel="noopener noreferrer">
-        <i class="fa fa-whatsapp my-float"></i>
-      </a>
-      <a href="https://www.instagram.com/egipto.infinito" class="float2" target="_blank" rel="noopener noreferrer">
-        <img src="/imagenes/ig2.png" alt="Instagram" />
-      </a>
-
     </div>
   );
 }

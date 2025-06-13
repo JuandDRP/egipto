@@ -1,60 +1,72 @@
-import '../hojas-de-estilo/sobreNosotros.css';
-
 function SobreNosotros() {
   return (
-    <div>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></link>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"></link>
+    <div className="bg-white">
+      <div className="max-w-7xl mx-auto px-4 py-16 font-sans bg-white text-gray-800">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"></link>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"></link>
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold uppercase text-yellow-700">Sobre Nosotros</h1>
+          <p className="text-lg text-gray-600 mt-4">
+            Descubre quiénes somos y por qué somos tu mejor opción para explorar Egipto
+          </p>
+        </div>
 
-
-      <div className="sobre-nosotros-container">
-        <h1>Sobre Nosotros</h1>
-
-
-        <div className="sobre-nosotros-content">
-          <div className="sobre-nosotros-texto">
-
-            <p>
-              Somos una agencia de viajes especializada en tours por Egipto, dedicada a brindar experiencias inolvidables a nuestros clientes.
-              Con años de trayectoria en la industria, nos enorgullece ofrecer recorridos personalizados y de alta calidad, asegurando seguridad, comodidad y aventura en cada viaje.
+        <div className="flex flex-col items-center gap-12">
+          <div className="bg-gray-50 p-8 rounded-xl shadow-lg max-w-3xl text-justify">
+            <p className="text-lg mb-6 leading-relaxed">
+              Somos una agencia especializada en tours por Egipto, dedicada a crear experiencias únicas.
+              Nos apasiona conectar a las personas con la historia, cultura y magia de esta tierra milenaria.
             </p>
 
-            <h2><strong>¿Por qué elegirnos?</strong></h2>
-            <p>
-              ✅ Itinerarios diseñados y flexibles para todo tipo de viajeros: historia, aventura, lujo y cultura. <br />
-              ✅ Guías expertos que hacen que la historia cobre vida. <br />
-              ✅ Atención personalizada desde el primer contacto. <br />
-              ✅ Transporte seguro y cómodo para que disfrutes sin preocupaciones.
+            <h2 className="text-2xl font-semibold text-yellow-700 text-center mb-4">¿Por qué elegirnos?</h2>
+            <ul className="list-disc list-inside text-lg mb-6 space-y-2">
+              <li>Itinerarios flexibles y personalizados para cada tipo de viajero.</li>
+              <li>Guías expertos que hacen que la historia cobre vida.</li>
+              <li>Atención cercana y acompañamiento desde el primer contacto.</li>
+              <li>Transporte seguro y cómodo para que solo pienses en disfrutar.</li>
+            </ul>
+
+            <p className="text-lg mb-6 leading-relaxed">
+              Vive Egipto con nosotros: explora las pirámides, navega el Nilo y descubre secretos milenarios.
+              Creamos viajes que dejan huella.
             </p>
 
-            <p>
-              Nos comprometemos a ofrecerte una experiencia que supere tus expectativas.
-              Descubre con nosotros los misterios de las pirámides, navega por el majestuoso Nilo y sumérgete en la magia de Egipto.
-            </p>
-
-            <p>
-              <strong>📩<a href="https://wa.me/18649088106?text=Hola%2C%20quiero%20información%20sobre%20los%20tours%20a%20Egipto" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline"> Contáctanos</a> y comienza tu aventura hoy.</strong>
+            <p className="text-center font-semibold text-yellow-700 text-lg">
+              📩{' '}
+              <a
+                href="https://wa.me/18649088106?text=Hola%2C%20quiero%20información%20sobre%20los%20tours%20a%20Egipto"
+                className="underline hover:text-yellow-800"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Contáctanos y empieza tu aventura hoy
+              </a>
             </p>
           </div>
 
-          <h1>Fundadora y encargada de la agencia</h1>
-          <div className="sobre-nosotros-imagenes">
-            <img src="/imagenes/Lina.jpg" alt="Equipo de la agencia" />
-            <img src="/imagenes/Lina2.jpg" alt="Clientes en un tour por Egipto" />
+          <div className="text-center">
+            <h2 className="text-2xl font-semibold text-yellow-700 mb-6">Fundadora y Encargada</h2>
+            <div className="flex flex-wrap justify-center gap-6">
+              <img
+                src="/imagenes/Lina.jpg"
+                alt="Fundadora"
+                className="w-72 rounded-lg shadow-md transition-transform duration-300 hover:scale-105"
+              />
+              <img
+                src="/imagenes/Lina2.jpg"
+                alt="Fundadora en Egipto"
+                className="w-72 rounded-lg shadow-md transition-transform duration-300 hover:scale-105"
+              />
+            </div>
           </div>
         </div>
+        <a href="https://wa.me/18649088106?text=Hola%2C%20quiero%20información%20sobre%20los%20tours%20a%20Egipto" class="float" target="_blank" rel="noopener noreferrer">
+          <i class="fa fa-whatsapp my-float"></i>
+        </a>
+        <a href="https://www.instagram.com/egipto.infinito" class="float2" target="_blank" rel="noopener noreferrer">
+          <img src="/imagenes/ig2.png" alt="Instagram" />
+        </a>
       </div>
-
-
-
-
-      <a href="https://api.whatsapp.com/send?phone=573165659077&text=Hola%2C%20quiero%20información%20sobre%20los%20tours%20a%20Egipto" class="float" target="_blank" rel="noopener noreferrer">
-        <i class="fa fa-whatsapp my-float"></i>
-      </a>
-      <a href="https://www.instagram.com/egipto.infinito" class="float2" target="_blank" rel="noopener noreferrer">
-        <img src="/imagenes/ig2.png" alt="Instagram" />
-      </a>
-
     </div>
   );
 }

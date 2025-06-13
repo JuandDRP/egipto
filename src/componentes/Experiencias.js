@@ -62,12 +62,12 @@ function PaginaPrincipal() {
     { src: "/imagenes/50.jpg", alt: "Visitando un templo" }
 
   ], []);
-  
+
   useEffect(() => {
   if (comentarios.length > 0) {
     console.log("Hay comentarios");
   }
-}, [comentarios]);
+}, [comentarios.length]);
 
   useEffect(() => {
     if (mostrarComentarios && comentarios.length === 0) {

@@ -63,11 +63,7 @@ function PaginaPrincipal() {
 
   ], []);
 
-  useEffect(() => {
-  if (comentarios.length > 0) {
-    console.log("Hay comentarios");
-  }
-}, [comentarios.length]);
+  
 
   useEffect(() => {
     if (mostrarComentarios && comentarios.length === 0) {

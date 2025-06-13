@@ -63,7 +63,8 @@ function PaginaPrincipal() {
 
   ], []);
 
-    useEffect(() => {
+  // eslint-disable-next-line react-hooks/exhaustive-dep
+  useEffect(() => {
   if (comentarios.length > 0) {
     console.log("Hay comentarios");
   }

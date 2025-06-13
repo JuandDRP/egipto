@@ -79,7 +79,7 @@ function PaginaPrincipal() {
           setCargandoComentarios(false);
         });
     }
-  }, [mostrarComentarios]);
+  }, [mostrarComentarios, comentarios.length]);
 
   const renderEstrellas = (cantidad) => {
     return Array.from({ length: 5 }, (_, i) => (
